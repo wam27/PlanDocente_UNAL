@@ -1,0 +1,251 @@
+---
+title: "Plan Docente ICN-UNAL"
+author: "Wilderson Medina, Ph.D."
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    df_print: paged
+runtime: shiny
+---
+
+```{css, echo=FALSE}
+/* Importar fuente desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;600;700&display=swap');
+
+/* Estilo general del documento */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; /* tamaño base */
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #001219;
+}
+
+/* Tabla de contenido (forzar estilo) */
+#TOC, 
+#TOC ul, 
+#TOC li, 
+.tocify,
+.tocify ul,
+.tocify li {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 12px !important;
+  line-height: 1.4;
+}
+
+/* Encabezados */
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #001219;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(90deg, #0a9396,#005f73);
+  color: #005f73;
+  padding: 20px;
+}
+
+/* Tarjetas */
+.card {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 12px;
+  background-color: white;
+}
+
+/* Badge */
+.badge {
+  background:#94d2bd;
+  color:#001219;
+  padding:4px 8px;
+  border-radius:6px;
+  font-weight:600;
+}
+
+
+```
+
+
+
+### Presentación {.header}
+
+::: card
+**Plan Docente – Concurso Profesoral 2025**\
+**Aspirante:** Wilderson Medina PhD\
+**Perfil:** TC4 – Instituto de Ciencias Naturales (ICN)\
+**Área:** Ecología, Macroecología, Ciencia de Datos, Conservación de la Biodiversidad y Cambio Global
+:::
+
+### Generalidades {.card}
+Los cambios globales que inciden en la estabilidad y permanencia de la biodiversidad exigen, con carácter urgente, la formulación de soluciones sustentadas en evidencia científica sólida. En el contexto de la era de la información, las grandes series de datos se constituyen como una auténtica piedra de Rosetta contemporánea, cuya interpretación demanda procesos sistemáticos, analíticos e interpretativos de la más alta rigurosidad. En este marco, resulta prioritario revelar tendencias, patrones y procesos que permitan comprender las respuestas de los sistemas naturales ante la creciente presión derivada de las actividades humanas.
+
+El presente plan docente se orienta a fortalecer las competencias en la adquisición, gestión y procesamiento de grandes volúmenes de datos, con el fin de analizar y explicar patrones y procesos ecológicos y evolutivos de los organismos en el contexto del Antropoceno. De esta manera, se busca promover una formación crítica y actualizada, capaz de vincular herramientas cuantitativas avanzadas con los retos contemporáneos de la conservación y el manejo sostenible de la biodiversidad.
+
+### Objetivos {.card}
+
+**General**
+
+Fortalecer en los estudiantes las competencias teóricas y prácticas para la adquisición, procesamiento y análisis de grandes volúmenes de datos, con el propósito de comprender y explicar patrones y procesos ecológicos y evolutivos de los organismos en el contexto del Antropoceno, aportando a la generación de soluciones basadas en evidencia científica para la conservación de la biodiversidad.
+
+**Específicos**
+
+1. Desarrollar habilidades en la sistematización, análisis e interpretación rigurosa de grandes series de datos ecológicos y evolutivos.
+
+2. Identificar tendencias, patrones y procesos en las respuestas de los sistemas naturales frente a la creciente influencia de las actividades humanas.
+
+3. Promover el uso de herramientas tecnológicas y metodológicas avanzadas en el estudio de la biodiversidad y los ecosistemas.
+
+4. Fomentar el pensamiento crítico y la capacidad de relacionar la información científica con los desafíos actuales de la conservación y el manejo sostenible de la biodiversidad.
+
+### Cursos propuestos {.card}
+
+Los siguientes cursos ofrecen una formación integral en conservación, ecología y ciencia de datos aplicados al estudio de la biodiversidad. Las asignaturas combinan fundamentos teóricos con herramientas técnicas avanzadas, abarcando desde cursos introductorios en pregrado hasta seminarios de investigación en niveles de maestría.
+
+La oferta académica busca fortalecer competencias para comprender procesos ecológicos y evolutivos, aplicar tecnologías de vanguardia y responder a los retos del cambio global. Las asignaturas se alternan por ciclo académico, lo que garantiza flexibilidad y actualización continua en la formación de los estudiantes.
+
+```{r cursos, echo=FALSE, message=FALSE}
+library(DT)
+
+courses <- data.frame(
+  Curso = c(
+    'Ciencia de la Conservación',
+    'Análisis Geospaciales en Conservación',
+    'Ecología Tropical',
+    'Macroecología',
+    'Ciencia de Datos para la Biodiversidad',
+    'Seminario de Investigación en Cambio Climático y Biodiversidad en Sistemas de Montaña',
+    'Seminario para la Gestión de Vocaciones Científicas'
+  ),
+  Nivel = c(
+    'Pregrado',
+    'Pregrado/Maestría',
+    'Pregrado/Maestría',
+    'Pregrado/Maestría',
+    'Pregrado/Maestría',
+    'Pregrado/Maestría',
+    'Pregrado'
+  ),
+  Descripción = c(
+    "Este curso ofrece una visión integral de la evolución de la conservación como disciplina científica, desde sus fundamentos históricos hasta los retos contemporáneos en la era del Antropoceno. Se analiza la relación entre el ser humano y la naturaleza, destacando las sinergias y conflictos que emergen de esta interacción. Asimismo, se abordan los conceptos de biodiversidad vulnerable y en peligro, junto con los marcos legales, éticos y sociales que sustentan la práctica de la conservación.",
+    "Este curso proporciona una formación teórico-práctica en el uso de Sistemas de Información Geográfica (SIG) y sensores remotos aplicados a la gestión y conservación de la biodiversidad. Se enfatiza el manejo de herramientas avanzadas como Python, R, Google Earth Engine (GEE) y ArcGIS, integrando el análisis espacial con enfoques ecológicos y de planificación territorial.",
+    "Este curso explora los principios ecológicos fundamentales en comunidades y poblaciones de sistemas tropicales, considerados los ecosistemas más diversos y complejos del planeta. Se revisan los antecedentes históricos y el estado actual de la investigación en ecología tropical, incluyendo dinámicas de biodiversidad, interacciones entre especies y respuestas al cambio global.",
+    "Este curso aborda el estudio de los patrones de diversidad biológica y su variación a través de escalas espaciales y temporales, desde lo local hasta lo global. Los estudiantes profundizarán en los procesos que determinan la distribución y abundancia de las especies, así como en la formulación y prueba de hipótesis macroecológicas.",
+    "Este curso se centra en la adquisición, integración, procesamiento y análisis de grandes volúmenes de datos provenientes de diversas fuentes (bases de datos globales, sensores remotos, monitoreo in situ, ciencia ciudadana). Los estudiantes aprenderán a aplicar herramientas de programación, modelado y visualización para identificar patrones y procesos relevantes en ecología, evolución y conservación.",
+    "Este seminario ofrece un espacio académico para la discusión de los avances científicos relacionados con los ecosistemas de montaña tropical y su vulnerabilidad frente al cambio climático. Se analizan los impactos sobre la biodiversidad, los procesos ecológicos y los servicios ecosistémicos, así como las estrategias de adaptación y mitigación a distintas escalas.",
+    "Este curso introductorio tiene como propósito despertar y consolidar vocaciones científicas entre los estudiantes interesados en la naturaleza y la conservación. Desde un enfoque formativo y reflexivo, se exploran los fundamentos de la lógica científica, la importancia de la evidencia en la construcción del conocimiento y su papel en la toma de decisiones ambientales."
+  ),
+  Competencias = c(
+    "Analizar críticamente los fundamentos de la ciencia de la conservación y su relevancia en el contexto socioambiental actual.",
+    "Aplicar herramientas geoespaciales avanzadas para la gestión y análisis de datos espaciales con fines de conservación.",
+    "Interpretar patrones ecológicos en sistemas tropicales y evaluar su importancia para la biodiversidad y el funcionamiento de ecosistemas.",
+    "Explicar y modelar patrones macroecológicos a diferentes escalas, utilizando datos globales y métodos estadísticos.",
+    "Integrar enfoques de ciencia de datos para el análisis reproducible de información ecológica y evolutiva en proyectos de conservación.",
+    "Evaluar críticamente literatura científica y proponer estrategias de adaptación frente al cambio climático en sistemas de montaña.",
+    "Desarrollar pensamiento crítico, razonamiento lógico y habilidades para formular preguntas científicas vinculadas a la biodiversidad."
+  )
+)
+
+DT::datatable(
+  courses,
+  options = list(pageLength = 7, dom = 't'),
+  rownames = FALSE
+)
+```
+
+### Formación y Dirección {.card}
+
+**Proyectos Académicos y de Investigación**
+
+Para el reforzamiento del conocimiento adquirido en los contenidos de las asignaturas propuestas, los estudiantes deberan desarrollar proyectos académicos y de investigación. Estos proyectos buscan que los estudiantes logren familiarizarse con la lectura científica y critica.
+
+Los proyectos académicos pueden variar en su enfoque ya sea de tipo netamente académico (ensayos, debates, reportes, artículos científicos, notas breves) o no académico (editoriales, columnas de prensa, camapñas mediáticas)
+
+**Tutorias**
+
+Diseñadas para el acompañamiento y seguimiento del aprendizaje mediante asesoramiento en horarios extraclase. Con las tutorias se busca dar solución a preguntas que los estudiantes buscan resolver producto de algun tema en particular o en la preparación de proyectos, trabajos y evaluaciones.
+
+**Plan de Desarrollo Individual (PDI)**
+
+Un PDI busca centrar al estudiante en el contexto de sus planes y metas científicas, asi como entrenar sus habilidades cognitivas y comunicativas para el exito de sus investigaciones.
+
+**Plan de Acción en Asesoria Académica (PAAA)**
+
+Este plan busca identificar los vacios que existen en torno a la relación asesor-estudiante y proporcionar herramientas que suplan tales vacios. Una de las herramientas clave es desarrollar un documento que permita hacer seguimiento a los procesos e interacciones que el asesor tiene con sus estudiantes.
+
+
+
+
+### Vinculación y Extensión {.card}
+
+**Colecciones Biológicas ICN**
+
+* Apoyo en el desarrollo de protocolos basados en machine learning para la sistematización y digitalización de los registros biológicos del ICN.
+
+* Fortalecimiento de la gestión de acceso abierto a las colecciones, promoviendo su visibilidad e impacto en la investigación.
+
+* Contribución en la curaduría y crecimiento de las colecciones biológicas (aves, mamíferos, artrópodos, plantas), mediante la gestión de protocolos que integren bases de datos a nivel nacional y global (SiB Colombia, GBIF).
+
+* Participación en procesos de educación, divulgación y servicios a través del Museo de Historia Natural y el Herbario Nacional Colombiano, incluyendo actividades como la Noche de los Museos.
+
+**BioData Camp**
+
+* Desarrollo de un Boot Camp interdisciplinario orientado a entrenar habilidades en programación, diseño de protocolos y machine learning, enfocado en la búsqueda de soluciones a problemáticas específicas en conservación de la biodiversidad y manejo de ecosistemas.
+
+* Vinculación de actores provenientes de las ciencias de datos, ingenierías, ciencias naturales y artes, con el fin de generar prototipos tecnológicos aplicados a procesos ambientales y a la conservación de la biodiversidad.
+
+* Creación de un espacio de innovación abierta donde los estudiantes puedan aplicar sus conocimientos en escenarios reales de impacto social y ambiental.
+
+**Programa para la Gestión de Vocaciones en CTeI**
+
+* Diseño y promoción de un programa institucional e interdisciplinario para la formación y conexión de estudiantes universitarios con la sociedad civil en torno a las ciencias, la tecnología y la innovación (CTeI).
+
+* Implementación del seminario de gestión de vocaciones científicas como espacio inicial de entrenamiento en herramientas y metodologías, que luego los estudiantes aplicarán para capacitar a poblaciones no especializadas.
+
+* Articulación con los Centros de Interés en CTeI propuestos por el Gobierno Nacional, contribuyendo a la formación de futuras generaciones de científicas y científicos.
+
+* Vinculación activa de estudiantes en procesos de educación ambiental y participación comunitaria, a través de colaboraciones con organizaciones sin ánimo de lucro y otros actores sociales.
+
+### Redes y Colaboraciones {.card}
+
+La comunidad científica internacional demanda hoy más que nunca el desarrollo de protocolos estandarizados, herramientas tecnológicas innovadoras y enfoques interdisciplinarios que permitan integrar datos a gran escala, mejorar los sistemas de monitoreo y avanzar en el entendimiento de los patrones y procesos ecológicos y evolutivos. 
+
+Es por esto que durante mi estancia profesoral promoveré el establecimiento de redes de colaboración con expertos de las ciencias básicas y las ingenierías, orientadas a responder a las crecientes necesidades globales frente a la pérdida acelerada de biodiversidad, el cambio climático y la transformación de los ecosistemas. 
+
+De igual manera, impulsaré la creación y aplicación de herramientas que fortalezcan el monitoreo y estudio de la biodiversidad en territorios prioritarios, donde el conocimiento científico resulta más necesario para orientar políticas de conservación, restauración y desarrollo sostenible.
+
+En este marco, el **Seminario de Investigación en Cambio Climático y Biodiversidad en Sistemas de Montaña** servirá como plataforma para articular colaboraciones nacionales e internacionales, promoviendo el intercambio de conocimiento y metodologías entre investigadores de diferentes disciplinas.
+
+Esta red de trabajo permitirá potenciar la generación de ciencia aplicada y la formación de estudiantes en un ambiente de cooperación global.
+
+La propuesta contempla la construcción de vínculos con investigadores de diferentes continentes, incluyendo África, Europa, Norteamérica, Sudamérica y Asia, en un proceso dinámico y abierto a la incorporación de nuevos aliados institucionales.
+
+* **África:** Deogratias Tuyisingize, Rob Davis, Johnny Wilson, Tim R. Hofmeester
+* **Europa:** Carsten Rahbek, Peter Hosner, Christos Astaras
+* **Norteamérica:** Stuart Pimm, Clinton Jenkins, Scott Edwards, Jim Clark, Bill Pan, John Poulsen, Dean Urban, Gerardo Ceballos, Oscar González
+* **Sudamérica:** Francisco Sánchez, María Eugenia Morales, Natalia Ocampo-Peñuela, Diego Tirira, Silvio Marchini
+* **Asia:** BinBin Li, Vivek Menon
+
+La red está en permanente construcción y abierta a la vinculación de nuevos expertos, grupos de investigación e instituciones, garantizando un carácter dinámico, inclusivo y de impacto global.
+
+### Filosofía de Enseñanza {.card}
+
+Mi propósito como educador y líder analítico es formar estudiantes que sean pensadores críticos, ciudadanos con sólida alfabetización científica y profesionales capaces de liderar procesos creativos y transformadores, en coherencia con el Artículo 2 del Decreto 1210 de 1993 y con los fines misionales de la Universidad Nacional de Colombia. Para alcanzar este objetivo, fundamento mi enseñanza en tres pilares: **el aprendizaje activo**, **la pedagogía basada en la evidencia científica** y **la mentoría personalizada.**
+
+Asumo los fines misionales de la Universidad (la generación y transmisión crítica del conocimiento, el fortalecimiento de la identidad nacional y la contribución al desarrollo sostenible del país) como principios transversales a toda mi actividad académica. En la práctica docente, buscaré motivar a los estudiantes a través de entornos de aprendizaje dinámicos que promuevan la indagación, la resolución de problemas y el análisis de datos. 
+
+La participación será un eje fundamental, incorporando tecnologías interactivas, discusiones guiadas y espacios para compartir ideas originales que fortalezcan el pensamiento independiente y colaborativo.
+
+Mi propia experiencia académica me ha demostrado que la investigación práctica acompañada de retroalimentación constante constituye una de las plataformas más efectivas para el aprendizaje profundo. Por ello, fomentaré oportunidades de investigación independiente tanto en mi grupo de trabajo como en el aula, promoviendo en los estudiantes un sentido de propiedad intelectual y pertenencia a la comunidad científica. 
+
+Asimismo, buscaré cultivar vocaciones científicas que se caractericen por la curiosidad, la rigurosidad en la búsqueda de causas y explicaciones, y el compromiso con la conservación de la biodiversidad y el desarrollo sostenible del país.
+
+
+------------------------------------------------------------------------
+
+### Contacto {.card}
+Wilderson Medina — PhD. \| Correo: wilderson.medina@unal.edu.co
